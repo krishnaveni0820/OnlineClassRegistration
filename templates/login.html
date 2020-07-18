@@ -1,0 +1,37 @@
+{% extends "common.html" %}
+{% load static %}
+{% block bkv %}
+    {% include "stmain.html" %}
+    <br>
+    <form action="{% url 'after_login' %}" method="post">
+    {% csrf_token %}
+
+    <table align="center" border="0">
+        <tr>
+            <th rowspan="5">
+                <img src="{% static 'image/Student_login.png'%}">
+            </th>
+        </tr>
+    <tr>
+        <th style="background-color: orangered ;color: white;text-align: center">
+            <h2> Login Page</h2>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <input type="text" placeholder="username" required name="t1">
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <input type="password" placeholder="password" required name="t2">
+        </th>
+    </tr>
+    <tr>
+        <th style="text-align: center">
+            <button type="submit">Login</button>
+        </th>
+    </tr>
+    </table>
+    </form>
+{% endblock %}

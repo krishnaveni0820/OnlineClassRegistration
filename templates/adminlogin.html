@@ -1,0 +1,49 @@
+{% extends "common.html" %}
+{% load static %}
+{% block bkv %}
+    <style>
+    .adminlogin
+    {
+        text-align: center;
+    }
+    </style>
+
+   <form action="{% url "admin_check" %}" method="post">
+      {% csrf_token %}
+       <table align="center" border="0">
+      <tr>
+
+      <th rowspan="4">
+          <img src="{% static 'image/Admin.png' %}">
+      </th>
+
+      <th style="width: 300px;text-align: center;font-family:Arial;font-size:20px;background-color: dodgerblue;color: white">
+          Admin Login Page
+      </th>
+      </tr>
+  <tr>
+      <th class="adminlogin">
+          <input type="text" placeholder="Username" required name="t1">
+      </th>
+  </tr>
+  <tr>
+      <th class="adminlogin" >
+          <input type="password" placeholder="Password" required name="t2" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$">
+      </th>
+  </tr>
+  <tr>
+      <th class="adminlogin">
+          <button type="submit">Login</button>
+      </th>
+  </tr>
+           {% if message %}
+  <tr>
+     <th class="adminlogin">
+         {{ message }}
+
+     </th>
+  </tr>
+           {% endif %}
+  </table>
+    </form>
+{% endblock %}

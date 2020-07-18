@@ -1,0 +1,45 @@
+{% extends "common.html" %}
+{% block bkv %}
+    <style>
+    .student
+    {
+      text-align: center;
+    }
+    </style>
+    {% include "stmain.html" %}
+    <br>
+    <form action="{% url 'register_student' %}" method="post">
+    {% csrf_token %}
+    <table align="center" border="0">
+        <tr>
+           <th style="background-color: darkgreen;color: white;font-size: 30px;font-family: Arial">
+            <h1>Student Registration</h1>
+           </th>
+        </tr>
+    <tr>
+        <th class="student">
+            <input type="text" placeholder="Name" required name="t1">
+        </th>
+    </tr>
+    <tr>
+        <th class="student">
+            <input type="number" placeholder="ContactNo" required name="t2">
+        </th>
+    </tr>
+    <tr>
+        <th class="student">
+            <input type="email" placeholder="Email" required name="t3">
+        </th>
+    </tr>
+    <tr>
+        <th class="student">
+            <input type="password" placeholder="Password" required name="t4">
+        </th>
+    </tr>
+    <tr>
+        <th class="student">
+            <button type="submit">Register</button>
+        </th>
+    </tr>
+    </table>
+{% endblock %}
